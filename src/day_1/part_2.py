@@ -1,14 +1,25 @@
 #!/usr/bin/env python3
 
 
-import sys
+def parse(data):
+    return data
 
 
-def main():
-    f = open("input.txt")
-    data = f.readlines()
-    f.close()
-    
+def readfile(sep="\n"):
+    try:
+        f = open("input.txt")
+        data = f.read().split(sep)
+        f.close()
+    except Exception as e:
+        sys.stderr.write(f"{e}\n")
+    return parse(data)
+
+
+def parseResult(res):
+    return res
+
+
+def solve(data):
     tops = list()
     for i in range(3):
         tops.append(0)
@@ -24,12 +35,20 @@ def main():
                     tops.append(top)
                     break
             top = 0
-    
+
     total = 0
     for _top in tops:
         total += _top
-    
-    sys.stdout.write(f"{total}\n")
+    return parseResult(total)
+
+
+def output(res):
+    sys.stdout.write(f"{res}\n")
+    return 0
+
+
+def main():
+    output(solve(readfile()))
     return 0
 
 

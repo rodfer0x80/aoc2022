@@ -3,11 +3,6 @@
 
 import sys
 
-#!/usr/bin/env python3
-
-
-import sys
-
 
 def parse(data):
     return data
@@ -28,16 +23,7 @@ def parseResult(res):
 
 
 def solve(data):
-    top = 0
-    new_top = 0
-    for line in data:
-        if line != "\n":
-            new_top += int(line)
-        else:
-            if new_top > top:
-                top = new_top
-            new_top = 0
-    return parseResult(top)
+    return parseResult(res)
 
 
 def output(res):
